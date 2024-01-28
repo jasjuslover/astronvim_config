@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "catppuccin",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -50,7 +50,23 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "dartls",
+    },
+    setup_handlers = {
+      dartls = function(_, opts) require("flutter-tools").setup { lsp = opts } end,
+      tsserver = function(_, opts) require("typescript").setup { server = opts } end,
+    },
+    config = {
+      dartls = {
+        -- any changes you want to make to the LSP setup, for example
+        color = {
+          enabled = true,
+        },
+        settings = {
+          showTodos = true,
+          completeFunctionCalls = true,
+        },
+      },
     },
   },
 
