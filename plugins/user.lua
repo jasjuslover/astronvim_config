@@ -44,4 +44,7 @@ return {
       ensure_installed = { "tsserver" }, -- automatically install lsp
     },
   },
+  {
+    "navarasu/onedark.nvim",
+  },
 }
